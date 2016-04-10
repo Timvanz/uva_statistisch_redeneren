@@ -113,32 +113,33 @@
 
 \section{Kansrekening 2}
 \subsection{Opgave 1}
-%Beschouw de uniforme verdeling op interval $[3,9]$.
-\begin{enumerate}[label=(\alph*)]
-    \item De lineaire functie $F(x)$ stijgt op dit interval van 0 naar 1. Dit geeft ons:
-    \begin{equation}
-        F(x)=\dfrac{x-3}{9-3}=\dfrac{x-3}{6}
-    \end{equation}
-    Voor $2\leq x \leq 8$.
-    \item
+    %Beschouw de uniforme verdeling op interval $[3,9]$.
+    \begin{enumerate}[label=(\alph*)]
+        \item De lineaire functie $F(x)$ stijgt op dit interval van 0 naar 1. Dit geeft ons:
         \begin{equation}
-            P([-10,3])=F(-10)-F(3)=0-\dfrac{3-3}{6}=0
+            F(x)=\dfrac{x-3}{9-3}=\dfrac{x-3}{6}
         \end{equation}
-    \item
-        \begin{equation}
-            P([a,b])=F(a)-F(b)=\dfrac{a-3}{6}-\dfrac{b-3}{6}=\dfrac{a-3-b+3}{6}=\dfrac{a-b}{6}
-        \end{equation}
-\end{enumerate}
+        Voor $2\leq x \leq 8$.
+        \item
+            \begin{equation}
+                P([-10,3])=F(-10)-F(3)=0-\dfrac{3-3}{6}=0
+            \end{equation}
+        \item
+            \begin{equation}
+                P([a,b])=F(a)-F(b)=\dfrac{a-3}{6}-\dfrac{b-3}{6}=\dfrac{a-3-b+3}{6}=\dfrac{a-b}{6}
+            \end{equation}
+    \end{enumerate}
 \subsection{Opgave 2}
-\begin{enumerate}[label=(\alph*)]
-    \item $U=\{\text{'kop'},\text{'munt'}\}$
-    \item
-        \begin{equation}
-            P(k)=\binom{n}{k}p^k(1-p)^{n-k}
-        \end{equation}
-    \item Dit is de binomiale verdeling, met paramters $n$ en $p$.
-    \item 
-\end{enumerate}
+    \begin{enumerate}[label=(\alph*)]
+        \item $U=\{\text{'kop'},\text{'munt'}\}$
+        \item
+            \begin{equation}
+                P(k)=\binom{n}{k}p^k(1-p)^{n-k}
+            \end{equation}
+        \item Dit is de binomiale verdeling, met paramters $n$ en $p$.
+        \item
+            \inputminted{python}{2d.py}
+    \end{enumerate}
 
 
 %TODO More discussion?
