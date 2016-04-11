@@ -139,7 +139,22 @@
     \item Dit is de binomiale verdeling, met paramters $n$ en $p$.
     \item 
 \end{enumerate}
-
+\subsection{Opgave 3}
+In python met Scipy en Numpy is het mogelijk om statistische functie te
+ gebruiken met \textit{scipy.stats}. Hierin zit de normale verdeling als
+ \textit{stats.norm}. De kansdichtheidsfunctie in norm is:
+\begin{equation}
+	\dfrac{e^{-x^2/2}}{\sqrt{2*\pi}}
+\end{equation}
+We plotten de kansdischtheidsfunctie, de verdelingsfunctie en een histogram
+ met 1000 waarden uit de kansdichtheidsfunctie. Dit is het resultaat:
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{fig.png}
+\end{figure}
+\FloatBarrier
+De histogram van de 1000 waarden past vrijwel correct in the
+ kansdichtheidsfunctie.
 
 %TODO More discussion?
 
