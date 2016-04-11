@@ -1,35 +1,29 @@
-# -----------------------------------------------------------------------------
+# -------------------------------------------------------------
 # Authors:  Tim van Zalingen (10784012)
 #           Maico Timmerman (10542590)
 #
 # Date:     7 April 2016
 #
 # File: 2d.py
-#
-# Doesn't work yet...
-# -----------------------------------------------------------------------------
-import numpy as np
+# -------------------------------------------------------------
+from scipy.misc import comb
 
-def coin_binomial(n, p, times):
-	return np.random.binomial(n, p, times)
 
-if __name__=='__main__':
-	times = 10000
-	n_range = 10
-	p_range = 10
-	p_foreach_n = []
-	for n in range(1, n_range + 1):
-		p_for_this_n = []
-		for p in range(1, p_range):
-			binom = coin_binomial(n, p / float(p_range - 1) , times)
-			first = np.sum((n - np.array(binom)) / float(n) / float(times))
-			second =  np.sum(binom / float(n) / float(times))
-			p_for_this_n.append((first, second))
-		p_foreach_n.append(np.array(p_for_this_n) / n)
-	""" This 2d array will contain tuples of each change, the change of heads
-		or tails """
-	print p_foreach_n
-	
-	for n in p_foreach_n:
-		for p in n:
-			print p[0] + p[1]
+def chance(n, p):
+    """
+    Calculate the total chance given the number of throws (n)
+    and the probability (p).
+    """
+    total = 0.0
+    for k in range(n+1):
+        total += comb(n, k, exact=False) * p**k * (1-p) ** (n-k)
+    return total
+
+
+def main():
+    for n in range(1, 20):
+        for p in [.0, .2, .25, .33, .5, .66, .75, .8, 1.]:
+            print('(n,p):(%d,%f) -> %f' % (n, p, chance(n, p)))
+
+if __name__ == '__main__':
+    main()
