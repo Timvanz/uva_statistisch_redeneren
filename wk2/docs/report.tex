@@ -213,8 +213,17 @@ $$p(x_l|S_m)p(x_g|S_m)p(x_s|S_m) > p(x_l|S_v)p(x_g|S_v)p(x_s|S_v)$$
 In onze programma hebben we de data van 2014 gebruikt als data om de
 kansdichtheidsfuncties te berekenen en de data van 2016 als test en vice versa.
 
-Hieruit kwam de volgende resultaten:
+Resultaten hiervan zijn de zien in de volgende figuren en tabellen. Helaas is
+de trainingsdata voor vrouwen erg weinig, waardoor het moeilijker wordt om met
+zekerheid te zeggen over de kans dat iemand een vrouw is.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{sex14.png}
+    \caption{De kansdichtheidsfunctie met trainingsdata van 2014}
+    \label{fig:sex_image}
+\end{figure}
+\FloatBarrier
 
 \begin{table}[h]
 \begin{tabular}{l|ll}
@@ -225,6 +234,13 @@ Geclassificeerd vrouw & 4  & 5 \\
 \caption{De confusion matrix met trainingsdata van 2014 en testdata van 2016}
 \end{table}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{sex16.png}
+    \caption{De kansdichtheidsfunctie met trainingsdata van 2016}
+    \label{fig:sex_image}
+\end{figure}
+\FloatBarrier
 
 \begin{table}[h]
 \begin{tabular}{l|ll}
@@ -235,8 +251,6 @@ Geclassificeerd vrouw & 2  & 5 \\
 \caption{De matrix met trainingsdata van 2016 en testdata van 2014}
 \end{table}
 
-
-%TODO More discussion?
 
 % =================================== REFERENCES ===================================
 
