@@ -112,7 +112,9 @@
 
 
 \section{Kansrekening 2}
+
 \subsection{Opgave 1}
+
     %Beschouw de uniforme verdeling op interval $[3,9]$.
     \begin{enumerate}[label=(\alph*)]
         \item De lineaire functie $F(x)$ stijgt op dit interval van 0 naar 1. Dit geeft ons:
@@ -129,8 +131,10 @@
                 P([a,b])=F(a)-F(b)=\dfrac{a-3}{6}-\dfrac{b-3}{6}=\dfrac{a-3-b+3}{6}=\dfrac{a-b}{6}
             \end{equation}
     \end{enumerate}
+
 \subsection{Opgave 2}
-\begin{enumerate}[label=(\alph*)]
+
+    \begin{enumerate}[label=(\alph*)]
         \item $U=\{\text{'kop'},\text{'munt'}\}$
         \item
             \begin{equation}
@@ -140,25 +144,97 @@
         \item
             \inputminted{python}{2d.py}
     \end{enumerate}
+
 \subsection{Opgave 3}
-In python met Scipy en Numpy is het mogelijk om statistische functie te
- gebruiken met \textit{scipy.stats}. Hierin zit de normale verdeling als
- \textit{stats.norm}. De kansdichtheidsfunctie in norm is:
-\begin{equation}
-	\dfrac{e^{-x^2/2}}{\sqrt{2*\pi}}
-\end{equation}
-We plotten de kansdischtheidsfunctie, de verdelingsfunctie en een histogram
- met 1000 waarden uit de kansdichtheidsfunctie. De code:
-\inputminted{python}{3.py}
-Dit is het resultaat:
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{fig.png}
-\end{figure}
-\FloatBarrier
-De histogram van de 1000 waarden past vrijwel correct in the
- kansdichtheidsfunctie.
+
+    In python met Scipy en Numpy is het mogelijk om statistische functie te
+     gebruiken met \textit{scipy.stats}. Hierin zit de normale verdeling als
+     \textit{stats.norm}. De kansdichtheidsfunctie in norm is:
+
+    \begin{equation}
+        \dfrac{e^{-x^2/2}}{\sqrt{2*\pi}}
+    \end{equation}
+
+    We plotten de kansdischtheidsfunctie, de verdelingsfunctie en een histogram
+     met 1000 waarden uit de kansdichtheidsfunctie. De code:
+    \inputminted{python}{3.py}
+    Dit is het resultaat:
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=\textwidth]{fig.png}
+    \end{figure}
+    \FloatBarrier
+
+    De histogram van de 1000 waarden past vrijwel correct in the
+    kansdichtheidsfunctie.
+
+\clearpage
 \section{Naive Bayes Classifier}
+
+De classificatie of iemand een man of vrouw is, hangt af van de lengte, het
+gewicht en de schoenmaat van de persoon. Er wordt vanuit gegaan dat al deze
+eigenschappen $\vec x$ normaal verdeeld zijn. Dat wil zeggen dat de kansdichtheidsfunctie
+is te beschrijven als een functie van de Gaussian. Om de goede kansdichtheids
+functie te berekenen wordt het gemiddelde en de standaarddeviatie berekend.
+
+
+Gegeven deze eigenschappen, willen we weten wat de kans is dat de data hoort bij
+een man of bij een vrouw ($S$). De kans die het grootste is wordt als waarheid
+beschouwd.
+
+Volgens de stelling van Bayes geldt:
+
+$$ p(S|\vec x) = \frac{p(S)p(\vec x|S)}{p(\vec x)}$$
+
+Dit willen we oplossen voor $S = man$ en $S = vrouw$.
+
+Omdat voor beide berekeningen geldt dat $p(\vec x)$ hetzelfde is, kunnen we deze
+buiten beschouwing laten, dus hoeven we alleen $p(S)p(\vec x|S)$ op te
+lossen.
+
+Volgens de chain rule geldt dat kansen die onafhankelijk zijn geschreven worden
+als:
+
+$$p(x_l, x_g, x_s|S) = p(x_l|S)p(x_g|S)p(x_s|S)$$
+
+De kansen $p(x_i|S)$ zijn te berekenen met de kansdichtheidsfuncties die we
+eerder hebben opgesteld.
+
+
+$$P(S_m)p(x_l|S_m)p(x_g|S_m)p(x_s|S_m) > P(S_v)p(x_l|S_v)p(x_g|S_v)p(x_s|S_v)$$
+
+Omdat we werken met mannen en vrouwen is de kans theoretisch gezien even groot.
+Dus deze laten we ook weg uit de vergelijking. En kunnen we een man
+classificeren als volgt:
+
+$$p(x_l|S_m)p(x_g|S_m)p(x_s|S_m) > p(x_l|S_v)p(x_g|S_v)p(x_s|S_v)$$
+
+In onze programma hebben we de data van 2014 gebruikt als data om de
+kansdichtheidsfuncties te berekenen en de data van 2016 als test en vice versa.
+
+Hieruit kwam de volgende resultaten:
+
+
+\begin{table}[h]
+\begin{tabular}{l|ll}
+                      & man & vrouw \\\hline
+Geclassificeerd man   & 36 & 4 \\
+Geclassificeerd vrouw & 4  & 5 \\
+\end{tabular}
+\caption{De confusion matrix met trainingsdata van 2014 en testdata van 2016}
+\end{table}
+
+
+\begin{table}[h]
+\begin{tabular}{l|ll}
+                      & man & vrouw \\\hline
+Geclassificeerd man   & 26 & 1 \\
+Geclassificeerd vrouw & 2  & 5 \\
+\end{tabular}
+\caption{De matrix met trainingsdata van 2016 en testdata van 2014}
+\end{table}
+
 
 %TODO More discussion?
 

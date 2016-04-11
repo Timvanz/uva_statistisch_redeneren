@@ -16,11 +16,11 @@ attrs = {'sex': 'Geslacht', 'weight': 'Gewicht (kg)',
 
 
 def main():
-    data14 = np.genfromtxt('./biometrie2016.csv', delimiter=',',
+    data14 = np.genfromtxt('./biometrie2014.csv', delimiter=',',
                            skip_header=1, dtype=[
                                ('sex', "|S1"), ('weight', int),
                                ('length', int), ('footsize', 'float')])
-    data16 = np.genfromtxt('./biometrie2014.csv', delimiter=',',
+    data16 = np.genfromtxt('./biometrie2016.csv', delimiter=',',
                            skip_header=1, dtype=[
                                ('sex', "|S1"), ('weight', int),
                                ('length', int), ('footsize', 'float')])
@@ -34,11 +34,11 @@ def main():
             if (row['sex'] == predict(row, ssummary)):
                 sex_correct[sex] += 1
 
-    print("      | Man | Vrouw")
-    print("Man   | %2d | %2d" % (
+    print("          | Man | Vrouw")
+    print("Cl. Man   | %2d  | %2d" % (
         sex_correct['M'],
         (len(data16[np.where(data16['sex'] == 'M')]) - sex_correct['M'])))
-    print("Vrouw | %2d | %2d" % (
+    print("Cl. Vrouw | %2d  | %2d" % (
         (len(data16[np.where(data16['sex'] == 'M')]) - sex_correct['M']),
         sex_correct['F']))
 
