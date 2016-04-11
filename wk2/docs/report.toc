@@ -1,4 +1,0 @@
-\select@language {english}
-\contentsline {section}{\numberline {1}Kansrekening 2}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Opgave 1}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Opgave 2}{2}{subsection.1.2}
