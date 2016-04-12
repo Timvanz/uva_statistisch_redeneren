@@ -52,7 +52,7 @@
 % =================================== DOC INFO ===================================
 
 \newcommand{\opdracht}{Statistisch Redeneren}
-\newcommand{\titel}{Lab 2}
+\newcommand{\titel}{Lab 3}
 \newcommand{\docent}{Rein van de Boomgaard}
 \newcommand{\cursus}{Statistisch Redeneren}
 \newcommand{\vakcode}{5062STRE6Y}
@@ -111,55 +111,15 @@
 % =================================== MAIN TEXT ===================================
 
 
-\section{Kansrekening 2}
-\subsection{Opgave 1}
-    %Beschouw de uniforme verdeling op interval $[3,9]$.
-    \begin{enumerate}[label=(\alph*)]
-        \item De lineaire functie $F(x)$ stijgt op dit interval van 0 naar 1. Dit geeft ons:
-        \begin{equation}
-            F(x)=\dfrac{x-3}{9-3}=\dfrac{x-3}{6}
-        \end{equation}
-        Voor $2\leq x \leq 8$.
-        \item
-            \begin{equation}
-                P([-10,3])=F(-10)-F(3)=0-\dfrac{3-3}{6}=0
-            \end{equation}
-        \item
-            \begin{equation}
-                P([a,b])=F(a)-F(b)=\dfrac{a-3}{6}-\dfrac{b-3}{6}=\dfrac{a-3-b+3}{6}=\dfrac{a-b}{6}
-            \end{equation}
-    \end{enumerate}
-\subsection{Opgave 2}
-\begin{enumerate}[label=(\alph*)]
-        \item $U=\{\text{'kop'},\text{'munt'}\}$
-        \item
-            \begin{equation}
-                P(k)=\binom{n}{k}p^k(1-p)^{n-k}
-            \end{equation}
-        \item Dit is de binomiale verdeling, met paramters $n$ en $p$.
-        \item
-            \inputminted{python}{2d.py}
-    \end{enumerate}
-\subsection{Opgave 3}
-In python met Scipy en Numpy is het mogelijk om statistische functie te
- gebruiken met \textit{scipy.stats}. Hierin zit de normale verdeling als
- \textit{stats.norm}. De kansdichtheidsfunctie in norm is:
-\begin{equation}
-	\dfrac{e^{-x^2/2}}{\sqrt{2*\pi}}
-\end{equation}
-We plotten de kansdischtheidsfunctie, de verdelingsfunctie en een histogram
- met 1000 waarden uit de kansdichtheidsfunctie. De code:
-\inputminted{python}{3.py}
-Dit is het resultaat:
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{fig.png}
-\end{figure}
-\FloatBarrier
-De histogram van de 1000 waarden past vrijwel correct in the
- kansdichtheidsfunctie.
-\section{Naive Bayes Classifier}
+\section{}
+\section{}
+\section{De exponentie\"ele verdeling}
 
+\begin{enumerate}
+    \item $E[X] = \frac{1}{\lambda}$\\
+        $Var[X] = \frac{1}{\lambda}$
+    \item
+\end{enumerate}
 %TODO More discussion?
 
 % =================================== REFERENCES ===================================
