@@ -30,8 +30,12 @@ def exp_rnd(N, seed, _lambda):
     return np.vectorize(vec_exp)(nums)
 
 
-def lambda_estimation():
-    pass
+def lambda_estimation(nums):
+    total = 0.0
+    for point in nums:
+        total += point
+    total /= len(nums)
+    return 1 / total
 
 if __name__ == '__main__':
     N = 1000
@@ -39,8 +43,10 @@ if __name__ == '__main__':
     y = exp_rnd(N, 759, 0.5)
     plt.title('{0} number (exponential distributed) pairs created with IBM RND'
               .format(N))
-    plt.subplot(1, 2, 1)
+    # plt.subplot(1, 2, 1)
+    plt.xlabel('$\lambda(x)$: {}'.format(lambda_estimation(x)))
+    plt.ylabel('$\lambda(y)$: {}'.format(lambda_estimation(y)))
     plt.plot(x, y, 'o')
-    plt.subplot(1, 2, 2)
-    plt.hist(x)
+    # plt.subplot(1, 2, 2)
+    # plt.hist(x)
     plt.show()
