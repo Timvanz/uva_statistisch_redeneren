@@ -14,18 +14,18 @@ import scipy as sp
 from scipy.stats import norm
 import matplotlib.pyplot as plt
 
-if __name__=='__main__':
-	x = sp.linspace(norm.ppf(0.01), norm.ppf(0.99), 100)
-	""" Take 1000 values from the normal distribution. """
-	r = norm.rvs(size=1000)
-	""" Histogram plot. """
-	plt.hist(r, normed=True, color='g', label='1000 values')
-	""" Plots the probability distribution function. """
-	plt.plot(x, norm.pdf(x), 'r-', label='norm pdf')
-	""" Plots the cumulative distribution function. """
-	plt.plot(x, norm.cdf(x), 'b-', label='norm cdf')
-	plt.title('Plot of the normal distibution pdf, cdf and' \
-			  'a histogram of 1000 values')
-	plt.legend()
-	plt.show()
-	
+
+if __name__ == '__main__':
+    x = sp.linspace(norm.ppf(0.01), norm.ppf(0.99), 100)
+    """ Take 1000 values from the normal distribution. """
+    r = norm.rvs(size=1000)
+    """ Histogram plot. """
+    plt.hist(r, normed=True, color='g', label='1000 values')
+    """ Plots the probability distribution function. """
+    plt.plot(x, norm.pdf(x), 'r-', label='norm pdf')
+    """ Plots the cumulative distribution function. """
+    plt.plot(x, norm.cdf(x), 'b-', label='norm cdf')
+    plt.title('Plot of the normal distibution pdf, cdf and'
+              'a histogram of 1000 values')
+    plt.legend()
+    plt.show()
