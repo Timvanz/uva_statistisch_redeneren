@@ -116,8 +116,35 @@
 \section{De exponentie\"ele verdeling}
 
 \begin{enumerate}
-    \item $E[X] = \frac{1}{\lambda}$\\
-        $Var[X] = \frac{1}{\lambda}$
+    \item
+        \begin{equation}
+        \begin{aligned}
+            E[X] &= \frac{1}{\lambda}\\
+            Var[X] &= \frac{1}{\lambda^2}
+        \end{aligned}
+        \end{equation}
+
+    \item $\lambda > 0$ is the parameter of the equation, which is called the
+        rateparameter.
+
+    \item Given that maximum likelihood estimate can be written as:
+        \begin{equation}
+        \begin{aligned}
+            \widehat{\lambda} = \frac{1}{\overline{x}}
+        \end{aligned}
+        \end{equation}
+
+        De $\overline{x}$ can be calculated with all the points $x_1, x_2,
+        \cdots x_n$.
+
+        \begin{equation}
+        \begin{aligned}
+            \overline{x}={1 \over n}\sum_{i=1}^n x_i
+        \end{aligned}
+        \end{equation}
+
+    \item
+        \inputminted{python}{o34.py}
     \item
 \end{enumerate}
 %TODO More discussion?
