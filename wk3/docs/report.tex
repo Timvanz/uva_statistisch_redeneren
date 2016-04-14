@@ -111,8 +111,50 @@
 % =================================== MAIN TEXT ===================================
 
 
-\section{}
-\section{}
+\section{Rekenen met stochasten}
+    \begin{equation}
+        \begin{aligned}
+            E(X+Y)&=\sum_x\sum_y((x+y)p_{xy}(x,y))\\
+                  &=\sum_x\sum_y(xp_{xy}(x,y)+yp_{xy}(x,y))\\
+                  &=\sum_x\sum_y(xp_{xy}(x,y))+\sum_x\sum_y(yp_{xy}(x,y))\\
+                  &=\sum_y(p_y(y))+\sum_x(p_x(x))\\
+                  &=EY+EX
+        \end{aligned}
+    \end{equation}
+\section{Uniform verdeelde stochasten}
+\begin{enumerate}
+    \item $ $
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=\textwidth]{uniform.png}
+        \end{figure}
+        \FloatBarrier
+    \item $ $
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=\textwidth]{ibm.png}
+        \end{figure}
+        \FloatBarrier
+        Both random number generators seem to do the same. Though when using
+        the same seed for the IBM generator, 983 for the x-axis and 759 for
+        the y-axis, we get the same output.
+    \item %RANDU wiki explains
+        We can show this downside using the numbers that IBM used. $a=65539$,
+        $c=0$ and $m=2^{31}$. Every next number is done by multiplying the
+        previous one by $65539=2^{16}+3$. So two steps are formed in the
+        following way:
+        \begin{equation}x_{k+2}=(2^{16}+3) x_{k+1}=(2^{16}+3 )^2 x_{k}\,\end{equation}
+        We can expand this in the following way, taking into account that
+        $2^{32}\mod2^{31}=0$:
+        \begin{equation}x_{k+2}=(2^{32}+6 \cdot2^{16} +9 )x_{k}=[6 \cdot (2^{16}+3)-9]x_{k}\,\end{equation}
+        Dit vormt de volgende correlatie tussen de drie punten:
+        \begin{equation}x_{k+2}=6(2^{16}+3)x_{k}-9x_{k}=6x_{k+1}-9x_{k}\,\end{equation}
+    \item Numpy's random uses the Mersenne Twister pseudorandom number generator. 
+        The Mersene Twister firstly generates a cache of 32 bit random
+        integers. This cache is filled by the seed. Each time one of the
+        numbers from the cache is used by shifts, and's, or's and xor's.
+        When the end of the cache is reached, it is refilled.
+\end{enumerate}
 \section{De exponentie\"ele verdeling}
 
 \begin{enumerate}
