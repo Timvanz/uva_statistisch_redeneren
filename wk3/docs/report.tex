@@ -158,10 +158,65 @@
 \section{De exponentie\"ele verdeling}
 
 \begin{enumerate}
-    \item $E[X] = \frac{1}{\lambda}$\\
-        $Var[X] = \frac{1}{\lambda}$
     \item
+        \begin{equation}
+        \begin{aligned}
+            E[X] &= \frac{1}{\lambda}\\
+            Var[X] &= \frac{1}{\lambda^2}
+        \end{aligned}
+        \end{equation}
+
+    \item $\lambda > 0$ is the parameter of the equation, which is called the
+        rateparameter.
+
+    \item Given that maximum likelihood estimate can be written as:
+        \begin{equation}
+        \begin{aligned}
+            \widehat{\lambda} = \frac{1}{\overline{x}}
+        \end{aligned}
+        \end{equation}
+
+        De $\overline{x}$ can be calculated with all the points $x_1, x_2,
+        \cdots x_n$.
+
+        \begin{equation}
+        \begin{aligned}
+            \overline{x}={1 \over n}\sum_{i=1}^n x_i
+        \end{aligned}
+        \end{equation}
+
+    \item
+        \begin{equation}
+        \begin{aligned}
+            f_X(x) &= \lambda - \exp^{-\lambda x}\\
+            F_X(x) &= 1 - \exp^{-\lambda x}\\
+            F^{-1}_X(p) &= -\frac{\log{(1-p)}}{\lambda}\\
+        \end{aligned}
+        \end{equation}
+
+        See code in \autoref{test} and \autoref{fig:exponential}.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.8\textwidth]{exponential.png}
+            \caption{Exponential distribution function}
+            \label{fig:exponential}
+        \end{figure}
+    \FloatBarrier
+    \item See code in \autoref{test} and \autoref{fig:histogram}.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.8\textwidth]{histogram.png}
+            \caption{Histogram of exponential distribution function}
+            \label{fig:histogram}
+        \end{figure}
+    \FloatBarrier
+    \item See code in \autoref{test} and \autoref{fig:exponential}.
+
 \end{enumerate}
+    \appendix
+    \section{Code}
+    \label{test}
+        {\footnotesize\inputminted{python}{o3.py}}
 %TODO More discussion?
 
 % =================================== REFERENCES ===================================
