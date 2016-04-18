@@ -146,13 +146,18 @@
         $c=0$ and $m=2^{31}$. Every next number is done by multiplying the
         previous one by $65539=2^{16}+3$. So two steps are formed in the
         following way:
+
         \begin{equation}x_{k+2}=(2^{16}+3) x_{k+1}=(2^{16}+3 )^2 x_{k}\,\end{equation}
+
         We can expand this in the following way, taking into account that
+
         $2^{32}\mod2^{31}=0$:
         \begin{equation}x_{k+2}=(2^{32}+6 \cdot2^{16} +9 )x_{k}=[6 \cdot (2^{16}+3)-9]x_{k}\,\end{equation}
-        Dit vormt de volgende correlatie tussen de drie punten:
+
+        This vorms the following correlation between the three points.
+
         \begin{equation}x_{k+2}=6(2^{16}+3)x_{k}-9x_{k}=6x_{k+1}-9x_{k}\,\end{equation}
-    \item Numpy's random uses the Mersenne Twister pseudorandom number generator.
+    \item Numpy's random uses the Mersenne Twister pseudo-random number generator.
         The Mersene Twister firstly generates a cache of 32 bit random
         integers. This cache is filled by the seed. Each time one of the
         numbers from the cache is used by shifts, and's, or's and xor's.
@@ -245,8 +250,8 @@ confidence interval is required. Using the look-up table we come to a value of
 $c = 2.009$. When $-c \leq T \leq +c$, then the mean of the subset is in the
 confidence interval.
 
-While runing the code that can be seen in \autoref{confidence}, we came to the result
-of 93\%-94\% most of the times. This is in contrast to the 95\% that was
+While running the code that can be seen in \autoref{confidence}, we came to the
+result of 93\%-94\% most of the times. This is in contrast to the 95\% that was
 expected.
 
 \appendix
