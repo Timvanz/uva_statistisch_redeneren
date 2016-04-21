@@ -15,6 +15,7 @@
 \usepackage{amsmath}
 \usepackage{placeins}
 \usepackage{enumitem}
+\usepackage{parskip}
 
 \usepackage{minted}
 \usepackage{listings}
@@ -138,18 +139,25 @@
         Both random number generators seem to do the same. Though when using
         the same seed for the IBM generator, 983 for the x-axis and 759 for
         the y-axis, we get the same output.
+
+        The code can be seen in \autoref{o22}.
     \item %RANDU wiki explains
         We can show this downside using the numbers that IBM used. $a=65539$,
         $c=0$ and $m=2^{31}$. Every next number is done by multiplying the
         previous one by $65539=2^{16}+3$. So two steps are formed in the
         following way:
+
         \begin{equation}x_{k+2}=(2^{16}+3) x_{k+1}=(2^{16}+3 )^2 x_{k}\,\end{equation}
+
         We can expand this in the following way, taking into account that
+
         $2^{32}\mod2^{31}=0$:
         \begin{equation}x_{k+2}=(2^{32}+6 \cdot2^{16} +9 )x_{k}=[6 \cdot (2^{16}+3)-9]x_{k}\,\end{equation}
-        Dit vormt de volgende correlatie tussen de drie punten:
+
+        This vorms the following correlation between the three points.
+
         \begin{equation}x_{k+2}=6(2^{16}+3)x_{k}-9x_{k}=6x_{k+1}-9x_{k}\,\end{equation}
-    \item Numpy's random uses the Mersenne Twister pseudorandom number generator. 
+    \item Numpy's random uses the Mersenne Twister pseudo-random number generator.
         The Mersene Twister firstly generates a cache of 32 bit random
         integers. This cache is filled by the seed. Each time one of the
         numbers from the cache is used by shifts, and's, or's and xor's.
@@ -194,7 +202,7 @@
         \end{aligned}
         \end{equation}
 
-        See code in \autoref{test} and \autoref{fig:exponential}.
+        See code in \autoref{o3}, and \autoref{fig:exponential}.
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.8\textwidth]{exponential.png}
@@ -202,7 +210,7 @@
             \label{fig:exponential}
         \end{figure}
     \FloatBarrier
-    \item See code in \autoref{test} and \autoref{fig:histogram}.
+    \item See code in \autoref{o3}, and \autoref{fig:histogram}.
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.8\textwidth]{histogram.png}
@@ -210,13 +218,54 @@
             \label{fig:histogram}
         \end{figure}
     \FloatBarrier
-    \item See code in \autoref{test} and \autoref{fig:exponential}.
+    \item See code in \autoref{o3}, and \autoref{fig:exponential}.
 
 \end{enumerate}
-    \appendix
-    \section{Code}
-    \label{test}
-        {\footnotesize\inputminted{python}{o3.py}}
+
+\section{Confidence intervals}
+
+To do statistics on large population, a small subset can be taken. By
+calculating a confidence interval of these subsets, the reliability of whole set
+can be calculated.
+
+For this assignment there is a set of waiting times. There was a 95\% confidence
+interval for the subset, which is of size 50. By calculating the mean ($\mu$) of the
+subset and comparing if it falls in the confidence interval 95\% of the mean of
+the total set of data, the interval was validated.
+
+The standard deviation ($\sigma$) of the subset is unknown. For that reason the
+T-score of the set is calculated. Here $\bar{X}$ is the mean of the subset.
+
+$$ T = \frac{\bar{X} - \mu}{s / \sqrt{n}} $$
+
+To see if the mean of the subset falls within the confidence interval, we have
+to check if the T-score value falls within a interval $[-c, +c]$. This $c$ can
+be calculated using the inverse cumulative distribution function.
+
+$$ c = F^{-1}_{T(n-1)} (1-\alpha) $$
+
+Because calculating this interval value $c$ is non trivial, a look-up table can
+be used. For this experiment we have 50 degree's of freedom and a 95\%
+confidence interval is required. Using the look-up table we come to a value of
+$c = 2.009$. When $-c \leq T \leq +c$, then the mean of the subset is in the
+confidence interval.
+
+While running the code that can be seen in \autoref{confidence}, we came to the
+result of 93\%-94\% most of the times. This is in contrast to the 95\% that was
+expected.
+
+\appendix
+\section{IBM random}
+\label{o22}
+{\footnotesize\inputminted{python}{o22.py}}
+
+\section{Exponential random}
+\label{o3}
+{\footnotesize\inputminted{python}{o3.py}}
+
+\section{Confidence Interval}
+\label{confidence}
+{\footnotesize\inputminted{python}{confidence.py}}
 %TODO More discussion?
 
 % =================================== REFERENCES ===================================

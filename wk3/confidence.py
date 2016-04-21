@@ -2,7 +2,7 @@ import numpy as np
 import scipy.stats as spst
 import random
 
-SAMPLE_NUM = 100
+SAMPLE_NUM = 100000
 SAMPLE_SIZE = 50
 SAMPLE_PROBABILITY = 0.95
 
@@ -17,6 +17,7 @@ def test_sample(data_mu, sample, interval):
 def main():
     data = np.genfromtxt('./tijden-medium.log', dtype=[('time', float)])
     data_mu = np.mean(data['time'])
+    # interval = [-2.009, 2.009] for 50 degrees of freedom and 95%.
     interval = spst.t.interval(SAMPLE_PROBABILITY, SAMPLE_SIZE)
     hits = 0
     for _ in range(SAMPLE_NUM):
