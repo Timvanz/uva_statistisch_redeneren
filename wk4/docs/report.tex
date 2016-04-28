@@ -126,7 +126,7 @@ We can get \textbf{Z} by multiplying \textbf{X} in the following way:
     \left(\begin{matrix}1&1\\1&-1\end{matrix}\right)\left(\begin{matrix}X_1\\X_2\end{matrix}\right)
 \end{equation}
 We can use this matrix that multiplies \textbf{X} to get \textbf{Z}, to get the
- coviariance matrix:
+ covariance matrix:
 \begin{equation}
     \Sigma_Z=\left(\begin{matrix}1&1\\1&-1\end{matrix}\right)
     \left(\begin{matrix}1&0\\0&4\end{matrix}\right)
@@ -158,6 +158,45 @@ For the components of \textbf{Z} to be uncorrelated, the covariance of $Z_1$
 \subsection{21}
 
 
+
+\section{PCA}
+
+\begin{equation}
+\begin{aligned}
+S &= \frac{1}{n-1} \sum\limits_{i=1}^{n} (\vec x_i - \vec m)(\vec x_i - \vec m)^T\\
+  &= \frac{1}{n-1} \sum\limits_{i=1}^{n} (\vec x_i - \vec m)(\vec x_i^T - \vec m^T)\\
+  &= \frac{1}{n-1} \sum\limits^n_{i=1} \left(\vec x_i \vec x_i^T - \vec x_i \vec m^T -
+                                             \vec m \vec x_i^T + \vec m \vec m ^T\right) \\
+\end{aligned}
+\end{equation}
+To ease the proof, we leave $\frac{1}{n-1}$ out of the equation.
+\begin{equation}
+\begin{aligned}
+  &= \sum\limits^n_{i=1} \left(\vec x_i \vec x_i^T - \vec x_i \vec m^T - \vec m \vec
+    x_i^T + \vec m \vec m^T\right)\\
+  &= \sum\limits^n_{i=1} \vec x_i \vec x_i^T - \sum\limits^n_{i=1} \vec x_i \vec m^T - \sum\limits^n_{i=1} \vec m \vec
+    x_i^T + \sum\limits^n_{i=1} \vec m \vec m^T \\
+  &= \sum\limits^n_{i=1} \vec x_i \vec x_i^T - \left(\sum\limits^n_{i=1} \vec x_i\right)
+    \vec m^T - \vec m \left(\sum\limits^n_{i=1} \vec x_i\right)^T + n \vec m \vec m^T\\
+\end{aligned}
+\end{equation}
+It is know that $\vec nm = \sum\limits_{i=1}^n \vec x_i$.
+\begin{equation}
+\begin{aligned}
+    &= \sum\limits^n_{i=1} \vec x_i \vec x_i^T - n \vec m \vec m^T - n \vec m \vec
+    m^T + n \vec m \vec m^T \\
+\end{aligned}
+\end{equation}
+By adding $\frac{1}{n-1}$ back into the equation, we come to the following result.
+\begin{equation}
+\begin{aligned}
+    S &= \frac{\left(\sum\limits^n_{i=1} \vec x_i \vec x_i^T \right) - n \vec m \vec m^T}{n-1} \\
+\end{aligned}
+\end{equation}
+
+In the final equation, the matrix that is created by $\sum\limits_{i=1}^n \vec
+x_i \vec x_i^T$ and the vector $\vec m$ can be calculated without loading the
+entire data matrix in memory.
 
 %TODO More discussion?
 
