@@ -120,6 +120,7 @@ The expectation of \textbf{Z} is:
 \end{equation}
 We can get \textbf{Z} by multiplying \textbf{X} in the following way:
 \begin{equation}
+    \label{eq:A_matrix}
     \text{\textbf{Z}}=\left(\begin{matrix}Z_1\\Z_2\end{matrix}\right)=
     \left(\begin{matrix}X_1+X_2\\X_1-X_2\end{matrix}\right)=
     \left(\begin{matrix}1&1\\1&-1\end{matrix}\right)\left(\begin{matrix}X_1\\X_2\end{matrix}\right)
@@ -129,8 +130,34 @@ We can use this matrix that multiplies \textbf{X} to get \textbf{Z}, to get the
 \begin{equation}
     \Sigma_Z=\left(\begin{matrix}1&1\\1&-1\end{matrix}\right)
     \left(\begin{matrix}1&0\\0&4\end{matrix}\right)
-    \left(\begin{matrix}1&1\\1&-1\end{matrix}\right)
+    \left(\begin{matrix}1&1\\1&-1\end{matrix}\right)^T=
+    \left(\begin{matrix}5&-3\\-3&5\end{matrix}\right)
 \end{equation}
+The covariance of $Z_1$ and $Z_2$ is not zero, so they are not independent.
+\subsection{20}
+First we calculate the covariance matrix for \textbf{Z}. We use the same matrix
+ that multiplies \textbf{X} to get \textbf{Z} in equation \ref{eq:A_matrix}.
+\begin{equation}
+    \begin{aligned}
+    \Sigma_Z&=\left(\begin{matrix}1&1\\1&-1\end{matrix}\right)
+    \left(\begin{matrix}1&0\\0&c\end{matrix}\right)
+    \left(\begin{matrix}1&1\\1&-1\end{matrix}\right)^T\\
+    &=\left(\begin{matrix}1&1\\1&-1\end{matrix}\right)
+    \left(\begin{matrix}1&1\\c&-c\end{matrix}\right)\\
+    &=\left(\begin{matrix}1+c&1-c\\1-c&1+c\end{matrix}\right)
+    \end{aligned}
+\end{equation}
+For the components of \textbf{Z} to be uncorrelated, the covariance of $Z_1$
+ and $Z_2$ needs to be 0. This covariance is taken from $\Sigma_Z$.
+\begin{equation}
+    \begin{aligned}
+    \text{cov}(Z_1, Z_2)=1-c&=0\\
+    c&=1
+    \end{aligned}
+\end{equation}
+\subsection{21}
+
+
 
 %TODO More discussion?
 
