@@ -156,7 +156,34 @@ For the components of \textbf{Z} to be uncorrelated, the covariance of $Z_1$
     \end{aligned}
 \end{equation}
 \subsection{21}
-
+The code for this exercise can be found in \textit{lab\_21.py}. Figure \ref{fig:21}
+ shows the 12 scatter plots.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{fig21.png}
+    \caption{12 scatter plots showing the non-diagonal elements from the data matrix}
+    \label{fig:21}
+\end{figure}
+\FloatBarrier
+\subsection{22}
+Figure \ref{fig:22} shows us that for bigger N, de deviation in the covariance matrix
+ and mean decrease. Which shows us that the accuracy of the estimators is dependent on N.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{fig22.png}
+    \caption{}
+    \label{fig:22}
+\end{figure}
+\FloatBarrier
+When repeating the estimations for fixed N and collect the results in a data
+ matrix, the covariance of this data matrix is the following:
+\begin{equation}
+\left(\begin{matrix}
+  6.68374801 &   5.90243783 & -14.27310294 & -3.75627027\\
+  5.90243783 &  11.73182492 & -20.63144665 &  1.7823714 \\
+-14.27310294 & -20.63144665 &  49.69584792 & -8.45388543\\
+ -3.75627027 &   1.7823714  &  -8.45388543 & 17.28203881\end{matrix}\right)
+\end{equation}
 
 
 \section{PCA}
