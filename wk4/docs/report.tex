@@ -188,6 +188,8 @@ When repeating the estimations for fixed N and collect the results in a data
 
 \section{PCA}
 
+\subsection{Incremental Calculation of the Covariance Matrix}
+
 \begin{equation}
 \begin{aligned}
 S &= \frac{1}{n-1} \sum\limits_{i=1}^{n} (\vec x_i - \vec m)(\vec x_i - \vec m)^T\\
@@ -225,7 +227,44 @@ In the final equation, the matrix that is created by $\sum\limits_{i=1}^n \vec
 x_i \vec x_i^T$ and the vector $\vec m$ can be calculated without loading the
 entire data matrix in memory.
 
-%TODO More discussion?
+\subsection{EigenStructure}
+
+Using the PCA method, it should be possible to describe local structures of a
+photo with less data, while the reconstructed image still looks similar to the
+original structure. Our implementation takes all possible samples of 25x25 to
+calculate the covariance matrix. All these details can be described as vectors
+of length 625, there are $232 \times 232 = 53824$ different details possible
+for the images. This leads to a dataset of size 625 x 53824. The method from
+the previous exercise is used, therefor not all the data needed to be loaded in
+memory at the same time.
+
+
+From the covariance matrix, the eigenvalue decomposition is calculated. These
+eigenvalues are sorted in size, the see the most important dimension of
+variance. As can be seen in \autoref{fig:eigenvalues}, the first eigenvalue's
+value is triple on quadratic scale.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{eigenvalues.png}
+    \caption{Eigenvalues of the covariance matrix op \textit{trui.png}.}
+    \label{fig:eigenvalues}
+\end{figure}
+\FloatBarrier
+
+To reconstruct the image using the eigenvalues of the covariance matrix,
+different number of original eigenvalues can be taken. To see the result of
+reconstructed, we created the picture of reconstructed structures. As can be
+seen in \autoref{fig:structures}, very small amount of eigenvalues gives a real
+good view of the image.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{montage.png}
+    \caption{Reconstructed \textit{trui.png} from different number of eigenvalues.}
+    \label{fig:structures}
+\end{figure}
+\FloatBarrier
 
 % =================================== REFERENCES ===================================
 

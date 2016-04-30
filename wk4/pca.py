@@ -63,7 +63,11 @@ def main():
         np.save('U', U)
         np.save('mean_vec', mean_vec)
 
-    plt.bar(range(5), abs(d[:5]))
+    plt.yscale('log')
+    plt.ylabel('$\lambda$-value')
+    plt.xlabel('number of eigen values')
+    plt.bar(range(10), d[:10], log=True)
+    plt.savefig('docs/eigenvalues.png')
     plt.show()
 
     for k in [0, 1, 3, 5, 7, 10, 20, 30, 50, 100, 150, 200, 300,
