@@ -1,3 +1,14 @@
+# -----------------------------------------------------------------------------
+# Authors:  Tim van Zalingen (10784012)
+#           Maico Timmerman (10542590)
+#
+# Date:     30 april 2016
+#
+# File: pca.py
+#
+# This code calculates PCA for an image and then uses this data to generate
+# reconstructed images using a subset of the data.
+# -----------------------------------------------------------------------------
 import numpy as np
 from scipy.misc import imread
 import matplotlib.pyplot as plt
