@@ -1,3 +1,14 @@
+# -----------------------------------------------------------------------------
+# Authors:  Tim van Zalingen (10784012)
+#           Maico Timmerman (10542590)
+#
+# Date:     16 May 2016
+#
+# File: lab_44.py
+#
+# This program runs the MAP classifier over the iris dataset.
+#
+# -----------------------------------------------------------------------------
 import numpy as np
 from scipy.stats import multivariate_normal
 
