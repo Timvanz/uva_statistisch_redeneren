@@ -1,4 +1,4 @@
-from sklearn import svm, preprocessing
+from sklearn import svm
 import numpy as np
 
 
