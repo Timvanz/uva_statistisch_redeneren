@@ -155,11 +155,26 @@ These are the class boundaries:
 
 \section{4.4: Minimum Error Classification II}
 The MAP classifier works by calculating the mean vector and covariance matrix for
- each set of iris data. For each of these sets with their mean vector and covariance
- matrix, the multivariate normal distribution is calculated. For each entry of data, the probability
- is calculated from this distribution. The iris with the highest probability is
- set as the correspondig iris. \\\\
-The MAP classifier running over the iris dataset achieves an accuracy of 0.972244 for 60060 tests (58393 correct).
+ each set of iris data.
+
+For each of these sets with their mean vector and covariance matrix, the
+multivariate normal distribution is calculated, using the following formula.
+
+\begin{equation}
+    \begin{aligned}
+        f_{\mathbf x}(x_1,\ldots,x_k) =
+        \frac{1}{\sqrt{(2\pi)^{k}\det{\boldsymbol\Sigma}}}
+        \exp\left(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)
+    \right)
+    \end{aligned}
+\end{equation}
+
+For each entry of the test data, the probability of all iris types is calculated
+from this distribution. The iris with the highest probability is set as the
+corresponding iris.
+
+The MAP classifier running over the iris dataset achieves an accuracy of
+0.972244 for 60060 tests (58393 correct).
 
 % =================================== REFERENCES ===================================
 
