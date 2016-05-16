@@ -2,7 +2,7 @@
 ASSIGNMENT_NUMBER := 5
 STUDENT_NAMES := maico_timmerman_tim_van_zalingen
 
-DOCS := $(shell ls docs/*.pdf) README.md
+DOCS := $(shell ls docs/*.pdf)
 IMAGES := $(shell ls *.png 2> /dev/null) $(shell ls *.jpg 2> /dev/null)
 DELIVERABLE := $(STUDENT_NAMES)_assignment_$(ASSIGNMENT_NUMBER).tar.gz
 # TODO: CHANGE THIS IF YOU DO NOT WANT TO SUBMIT ALL PYTHON FILES
