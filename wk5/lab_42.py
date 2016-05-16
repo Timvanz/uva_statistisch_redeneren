@@ -7,12 +7,10 @@
 # File: lab_42.py
 #
 # Here the k-NNb classifier is used to classify the iris data.
-#
 # -----------------------------------------------------------------------------
 from nnb import NNb
-from pylab import loadtxt, arange, loadtxt, permutation, transpose,\
-     zeros, sum, array, scatter, logical_and, figure,\
-     savefig
+from pylab import (arange, permutation, transpose, zeros, sum, array,
+                   logical_and, loadtxt)
 import matplotlib.pyplot as plt
 import sys
 sys.path.append("./python")

@@ -9,8 +9,7 @@
 # This file has the k-NNb classifier. It is called by lab_42.py for given k.
 #
 # -----------------------------------------------------------------------------
-
-from pylab import tile, sum, argmin, argmax, argpartition, bincount
+from pylab import tile, sum, argmax, argpartition, bincount
 
 
 class NNb:
